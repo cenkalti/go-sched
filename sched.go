@@ -21,12 +21,14 @@ type Scheduler struct {
 	lock		sync.RWMutex
 }
 
+// New creates a new scheduler and return it's pointer.
 func New() *Scheduler {
 	return &Scheduler{
 		queue:    pq.New(0),
 	}
 }
 
+// EnterAbs adds a new event to the queue at an absolute time.
 func (s *Scheduler) EnterAbs(time time.Time, action func ()) Event {
 	s.lock.Lock()
 	defer s.lock.Unlock()
@@ -36,11 +38,13 @@ func (s *Scheduler) EnterAbs(time time.Time, action func ()) Event {
 	return event
 }
 
+// Enter adds an new event to the queue to run after delay.
 func (s *Scheduler) Enter(delay time.Duration, action func ()) Event {
 	diff := time.Now().Add(delay)
 	return s.EnterAbs(diff, action)
 }
 
+// Empty returns true if there is not events in the queue.
 func (s *Scheduler) Empty() bool {
 	s.lock.RLock()
 	defer s.lock.RUnlock()
@@ -48,6 +52,7 @@ func (s *Scheduler) Empty() bool {
 	return s.queue.IsEmpty()
 }
 
+// Len returns the number of items in the scheduler's event queue.
 func (s *Scheduler) Len() int {
 	s.lock.RLock()
 	defer s.lock.RUnlock()
@@ -55,6 +60,7 @@ func (s *Scheduler) Len() int {
 	return s.queue.Len()
 }
 
+// Run executes events until the queue is empty.
 func (s *Scheduler) Run() {
 	var delay bool
 
