@@ -1,6 +1,9 @@
 go-sched
 ========
 
+.. image:: https://travis-ci.org/cenkalti/go-sched.png
+   :target: https://travis-ci.org/cenkalti/go-sched
+
 - A generally useful event scheduler in Go.
 - Ported from Python's sched_ module.
 - Uses priority queue internally.
