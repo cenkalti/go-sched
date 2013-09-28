@@ -2,7 +2,7 @@ go-sched
 ========
 
 - A generally useful event scheduler in Go.
-- Ported from Python's sched module.
+- Ported from Python's sched_ module.
 - Uses priority queue internally.
 - Executes each event in a seperate goroutine.
 
@@ -46,3 +46,6 @@ Output::
     Call 3
     Call 4
     Call 4
+
+
+.. _sched: http://hg.python.org/cpython/file/3.3/Lib/sched.py
