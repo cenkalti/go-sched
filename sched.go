@@ -83,7 +83,7 @@ func (s *Scheduler) Run() {
 		}
 		s.lock.Unlock()
 
-		if delay == true {
+		if delay {
 			time.Sleep(event.time.Sub(now))
 		} else {
 			go event.action()
