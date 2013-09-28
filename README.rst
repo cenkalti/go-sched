@@ -6,7 +6,9 @@ go-sched
 - Uses priority queue internally.
 - Executes each event in a seperate goroutine.
 
-Usage::
+Usage:
+
+.. code-block:: go
 
     package main
 
