@@ -80,8 +80,8 @@ func (s *Scheduler) Run() {
 		if delay == true {
 			time.Sleep(event.time.Sub(now))
 		} else {
-			event.action()
-			runtime.Gosched()
+			go event.action()
+			runtime.Gosched() // Don't know if this is required
 		}
 	}
 }
