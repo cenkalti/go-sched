@@ -1,6 +1,9 @@
 go-sched
 ========
 
+.. image:: https://godoc.org/github.com/cenkalti/go-sched?status.png
+   :target: https://godoc.org/github.com/cenkalti/go-sched
+   
 .. image:: https://travis-ci.org/cenkalti/go-sched.png
    :target: https://travis-ci.org/cenkalti/go-sched
 
